@@ -1,0 +1,375 @@
+/*699pxまでの画面*/
+/*┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+　◆-------サイトの共通部分------◆　
+  ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛*/
+html {
+  -webkit-text-size-adjust: 100%;/*一部のモバイル端末で使われる、テキストの自動拡大アルゴリズムを制御*/
+  -webkit-font-smoothing:antialiased;/*滑らかな表示*/
+}
+
+body {
+  font-size: 14px;
+  font-family: "游ゴシック", YuGothic, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+  word-break: break-all; /*言語に関係なく表示範囲に合わせて単語の途中でも改行する*/
+}
+
+a {
+  text-decoration: none;/*リンク傍線*/
+  color: #222;/*リンク文字色*/
+}
+
+
+/*=====================
+   コンテンツの位置とか
+  =====================*/
+.contents_position {
+  display:flex; /*親要素をフレックスコンテナに▶︎子要素を横並びする*/
+  justify-content: space-between; /*ロゴ部とナビ部を左右に分ける*/
+}
+
+/*========================
+  リンク選択時のアクション
+  ========================*/
+.hover_opacity{
+  transition:opacity 0.2s; /*カーソル当てた時の透過速度*/
+}
+.hover_opacity:hover{
+  opacity: 0.7; /*透過レベル*/
+}
+
+/*┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+　◆----------ヘッダー部分-------◆　
+  ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛*/
+ .page_header {
+    max-width: 100%;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 2px 6px rgba(0,0,0,.16);  
+}
+
+ .header_inner {
+    padding-top:15px;
+    padding-bottom: 15px;
+    margin: 0 20px;
+  }
+
+  /*=====================
+      左上のロゴ画像
+  =======================*/
+    .logo {
+    width: auto;
+    height: 16px;
+    vertical-align: middle;
+}
+ 
+  /*======================
+      ハンバーガー設定(≡)
+  ========================*/
+  .nav_hamburger{
+    display: block;
+    position: absolute;
+    z-index: 10;
+    top: 10px;
+    right: 30px;
+    width: 30px;
+    height: 30px;
+    transition: all .5s;
+    cursor: pointer;
+  }
+  
+  .nav_hamburger>span{
+    display: block;
+    position: absolute;
+    left: 0;
+    width: 30px;
+    height: 2px;
+    background-color: #333;
+    border-radius: 4px;
+    transition: all .5s;
+  }
+  
+  .nav_hamburger,.nav_hamburger>span{
+    display: inline-block;
+    transition: all .5s;
+    box-sizing: border-box;
+  }
+  
+    .nav_hamburger>span:nth-of-type(1) {top: 4px;}
+    .nav_hamburger>span:nth-of-type(2) {top: 14px;}
+    .nav_hamburger>span:nth-of-type(3) {bottom: 4px;}
+
+      .nav_hamburger>span:open:nth-of-type(1) {
+        -webkit-transform: translateY(20px) rotate(-45deg);
+        transform: translateY(20px) rotate(-45deg);}
+      .nav_hamburger>span:open:nth-of-type(2) {
+        opacity: 0;}
+      .nav_hamburger>span:open:nth-of-type(3) {
+        -webkit-transform: translateY(-20px) rotate(45deg);
+        transform: translateY(-20px) rotate(45deg);}
+        
+   /*========================
+      開いた時のメニュー中身
+     ========================*/
+  .header_ul{
+    display: block;
+    position: fixed;
+    overflow-y: scroll;
+    padding-top: 20px;
+    padding-bottom: 75px;
+    left: 100%;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+      -webkit-overflow-scrolling: touch;
+      transition: transform 0.5s;
+      transition-property: transform;
+      transition-duration: 0.5s;
+      transition-timing-function: ease;
+      transition-delay: 0s;
+  }
+        /*---●文字●-----*/
+        span{
+          display: block;
+          box-sizing: border-box;
+          font-weight: bold;
+          text-align: center;
+        }
+          .navlist_outline>.navlist_item>span:first-child {
+            font-size: 16px;
+            letter-spacing: 5px;
+            color: #fff;
+            font-family: 'Lato' 'sans-serif';
+           }
+          .navlist_outline>.navlist_item>span:last-child {
+            font-size: 12px;
+            margin-top: 10px;
+            color: #f79314;
+            letter-spacing: 2px;
+          }
+          
+        /*---●ボタン<無料カウンセリング>●-----*/
+         .sp__button{
+           height: 60px;
+           width: 250px;
+           font-size: 16px;
+         }
+          .btn01 {
+            display: flex;
+            padding:20px 20px;/*左右幅*/
+            border-radius:30px;/*角取り*/
+            justify-content: center;/*ボタン文字を上下中央にする*/
+            align-items: center;/*文字含めて全体的に中央寄せにする*/
+            color: #ffffff;
+            font-weight: 700;
+            background-color: #F79314;
+          }
+  
+/*┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+　◆-----------FirstView---------◆　
+  ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛*/
+  /*背景*/
+  .SP_firstview_image{
+    display: block;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    }
+  
+  /*========================
+      FirstViewの中身
+   ========================*/
+  .firstview_contents {
+    margin-top:-45vw;
+    word-break: break-all;/*改行規則*/
+    align-items: center;
+    flex-direction: column;
+    display: block;
+    padding: 0px 20px 35px;
+    position: relative;
+  }
+    /*--FirstView上部〜ボタンまで--*/ 
+    .firstview_contents_upper>h2{
+      margin:0 -20px 15px;
+    }
+      /*--タイトル--*/ 
+     .firstview_title {  
+        display: block;
+        font-size: 25px;
+        font-family: 'Lato' sans-serif;
+        font-weight: 700;
+        text-align: center;
+        line-height: 36px;
+        color: #333333;
+        margin: auto;
+        }
+        
+      /*中央画像３つ*/
+      .firstview_img{
+        align-items: center;
+        width:100%;
+        display:flex;
+        margin-bottom: 30px;
+      }
+        .firstview_img>:nth-of-type(1){margin:0 8px 0 0;width:30%;}
+        .firstview_img>:nth-of-type(2){margin:0 8px 0 0;width: 40%;}
+        .firstview_img>:nth-of-type(3){margin:0 0 0 0;width:30%;}
+    
+      /*ボタンふたつ*/
+      .firstview_btns{
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+    　  text-align: center;
+      }
+      
+        .firstview_btns>a:first-of-type{
+          display: flex;
+          height: 64px; /*ボタンの高さ調整*/
+          padding:20px 20px;/*左右幅*/
+          margin:0 0 10px;
+          border-radius:38px;/*角取り*/
+          justify-content: center;/*ボタン文字を上下中央にする*/
+          align-items: center;/*文字含めて全体的に中央寄せにする*/
+          color: #ffffff;
+          font-size:16px;
+          font-weight: 700;
+          background-color: #F79314;
+          box-sizing: border-box;
+          width: auto;
+        }
+    
+        .firstview_btns>a:last-of-type{
+          display: flex;
+          height: 45px; /*ボタンの高さ調整*/
+          padding:20px 20px;/*左右幅*/
+          border-radius:38px;/*角取り*/
+          justify-content: center;/*ボタン文字を上下中央にする*/
+          align-items: center;/*文字含めて全体的に中央寄せにする*/
+          color: #333333;
+          font-size:16px;
+          font-weight: 700;
+          border: solid;/*枠線を見える化*/
+          border-width:1px;
+          border-color: #E0E0E0;
+          background-color: #fff;
+          box-sizing: border-box;
+          width: auto;
+        }
+        
+    /*--FirstView下部(※)--*/
+    .firstview_caption{
+      margin-top: 20px;
+    }
+    .firstview_caption,p{
+      font-size: 12px;
+      color: #A2A2A4;
+    }
+    .firstview_caption>a{
+      font-size: 12px;
+      color: #A2A2A4;
+    }
+
+  /*┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+    ◆--------POTEPANCAMPとは------◆　
+    ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛*/  
+    /*背景色とか土台部分*/
+    .main-section{
+      background-color: #f79314;
+      flex-direction: column;
+      margin: auto;
+      padding: 30px 0px;
+    }
+    .about-content{
+      margin: auto;
+      align-items: center;
+      flex-direction: column;
+      display: block;
+      box-sizing: border-box;
+      padding: 0 20px;
+    }
+  
+  /*=============================
+     POTEPANCAMPとは見出しと文章
+    =============================*/
+    .about-text>h2{
+      font-size: 26px;
+      color: #fff;
+      display: block;
+      align-items: center;
+      text-align: center;
+    }
+    .about-text>h2>span{
+      font-size: 30px;
+      display: inline-block;
+      letter-spacing: 1px;
+      font-weight: 700;
+    }
+    .about-text>p{
+      color: #fff;
+      padding:15px 0;
+      font-size: 14px;
+    }
+  /*==========================
+     ボタン<CONTENT学習内容>
+    ==========================*/
+    .about-button{
+      display: block;
+      margin:auto;
+      padding-top: 20px;
+      max-width:250px;
+      box-sizing: border-box;
+    }
+
+    /*ボタンデザイン*/
+    .about-button>.content_btn{
+      display: flex;
+      margin: auto;
+      padding:40 0 0 0;
+      text-align: center;
+      flex-direction: column;
+      border-radius:30px;/*角取り*/
+      height: 60px;
+      font-weight: bold;
+      justify-content: center;
+      background-color: #fff;
+      box-sizing: border-box;
+     }
+    /*ボタン文字*/
+    .content_btn>span:first-child{
+      font-size: 20px;
+      color: #F79314;
+      font-weight: 700;
+      font-family: 'Lato' 'sans-serif';
+    }
+    .content_btn>span:last-child{
+      font-size: 12px;
+      color: #F79314;
+      font-weight: 700;
+    }
+  
+  /*end*/
+
+/*初期値リセット用*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+
+ 
+    
